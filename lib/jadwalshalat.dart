@@ -12,6 +12,7 @@ class JadwalShalatPage extends StatefulWidget {
 
 class _JadwalShalatPageState extends State<JadwalShalatPage> {
   String _cityId = "";
+  String _city = "";
   String _jadwalSubuh = "";
   String _jadwalDzuhur = "";
   String _jadwalAshar = "";
@@ -49,6 +50,7 @@ class _JadwalShalatPageState extends State<JadwalShalatPage> {
             _jadwalAshar = data['data']['jadwal']['ashar'] ?? "Data tidak tersedia";
             _jadwalMagrib = data['data']['jadwal']['maghrib'] ?? "Data tidak tersedia";
             _jadwalIsya = data['data']['jadwal']['isya'] ?? "Data tidak tersedia";
+            _city = data['data']['lokasi'] ?? "Data tidak tersedia";
           });
         }
       }
@@ -71,7 +73,7 @@ class _JadwalShalatPageState extends State<JadwalShalatPage> {
                 children: [
                   // Tampilkan lokasi kota
                   Text(
-                    "Lokasi: $_cityId",
+                    "Lokasi: $_city",
                     style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 20),
