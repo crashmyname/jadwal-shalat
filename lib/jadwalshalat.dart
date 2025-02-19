@@ -18,6 +18,9 @@ class _JadwalShalatPageState extends State<JadwalShalatPage> {
   String _jadwalAshar = "";
   String _jadwalMagrib = "";
   String _jadwalIsya = "";
+  String _jadwalImsak = "";
+  String _jadwalTerbit = "";
+  String _jadwalDhuha = "";
 
   @override
   void initState() {
@@ -50,6 +53,9 @@ class _JadwalShalatPageState extends State<JadwalShalatPage> {
             _jadwalAshar = data['data']['jadwal']['ashar'] ?? "Data tidak tersedia";
             _jadwalMagrib = data['data']['jadwal']['maghrib'] ?? "Data tidak tersedia";
             _jadwalIsya = data['data']['jadwal']['isya'] ?? "Data tidak tersedia";
+            _jadwalImsak = data['data']['jadwal']['imsak'] ?? "Data tidak tersedia";
+            _jadwalTerbit = data['data']['jadwal']['terbit'] ?? "Data tidak tersedia";
+            _jadwalDhuha = data['data']['jadwal']['dhuha'] ?? "Data tidak tersedia";
             _city = data['data']['lokasi'] ?? "Data tidak tersedia";
           });
         }
@@ -78,7 +84,10 @@ class _JadwalShalatPageState extends State<JadwalShalatPage> {
                   ),
                   const SizedBox(height: 20),
                   
+                  _buildJadwalCard('Imsak', _jadwalImsak),
                   _buildJadwalCard('Subuh', _jadwalSubuh),
+                  _buildJadwalCard('Terbit', _jadwalTerbit),
+                  _buildJadwalCard('Dhuha', _jadwalDhuha),
                   _buildJadwalCard('Dzuhur', _jadwalDzuhur),
                   _buildJadwalCard('Ashar', _jadwalAshar),
                   _buildJadwalCard('Maghrib', _jadwalMagrib),
@@ -95,7 +104,7 @@ class _JadwalShalatPageState extends State<JadwalShalatPage> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 5,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
